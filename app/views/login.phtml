@@ -1,0 +1,15 @@
+<div class="table">
+<div class="tablecell">
+	<? if(!empty($errorLog) && $errorLog) : ?>
+		<div class="errorContainer">
+			<div class="error absolute wrap-it">
+				<span class="badLogin">Le mot de passe saisi est erron&eacute;, merci de r&eacute;essayer.</span>
+			</div>
+		</div>
+	<? endif ?>
+	<form action="" method="POST" class="inputTextSubmit">
+		<input type="password" name="pass" placeholder="Mot de passe" class="focus"/>
+		<input type="submit" value="OK"/>
+	</form>
+</div>
+</div>

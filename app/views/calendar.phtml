@@ -1,0 +1,64 @@
+<? $currentYear	= date('Y');
+$currentMonth	= date('n');
+$currentDay		= date('j');
+$m = $currentMonth;
+$y = $currentYear;
+$nbDaysInMonth = date("t", mktime(0, 0, 0, $m, 1, $y)); ?>
+
+<!-- Calendar detail -->
+<div class="three columns right calendarDetail hiddenSmall">
+	
+</div>
+
+<!-- Calendar -->
+<div class="seven columns alpha omega calendar">
+	<div class="seven columns alpha omega calendarMonth">
+		<div class="one column changeMonth"><</div>
+		<div class="five columns titleMonth"><?=ucfirst(strftime("%B", mktime(0, 0, 0, $m))) . " " . $y; ?></div>
+		<div class="one column changeMonth">></div>
+	</div>
+	<div class="weekDays clearfix hiddenSmall">
+		<div class="one column alpha omega">Lundi</div>
+		<div class="one column alpha omega">Mardi</div>
+		<div class="one column alpha omega">Mercredi</div>
+		<div class="one column alpha omega">Jeudi</div>
+		<div class="one column alpha omega">Vendredi</div>
+		<div class="one column alpha omega">Samedi</div>
+		<div class="one column alpha omega">Dimanche</div>
+	</div>
+	<? // For each day in the month ?>
+	<? for($day = 1; $day <= $nbDaysInMonth; $day++) : ?>
+		<? $timestamp = mktime(0, 0, 0, $m, $day, $y);
+		$weekDay = date("w", $timestamp);
+		$today = date("d/m/Y") == date("d/m/Y", $timestamp) ? 'today' : ''; ?>
+
+		<? if($weekDay == 0) $weekDay = 7; ?>
+
+		<? $newLine = ($weekDay == 1) ? 'row remove-bottom' : '' ?>
+		<? // Fill the begining of the calendar ?>
+		<? if($day == 1) : ?>
+			<? for($beforeMonth=1; $beforeMonth<$weekDay; $beforeMonth++) : ?>
+				<div class="one column alpha omega day fill <?=$newLine ?>"></div>
+			<? endfor ?>
+		<? endif ?>
+		
+		<? // Here are the real days of the mounth ?>
+		<div class="one column alpha omega day <?=$newLine ?> <?=$today ?>">
+			<div class="dayNumber"><?=$day ?></div>
+			<div class="dayContent">
+				<!-- Bla bla bla bla<br/>
+				Piou piou piou -->
+			</div>
+		</div>
+
+		<? // Fill the end of the calendar ?>
+		<? if($day == $nbDaysInMonth) : ?>
+			<? for($afterMonth=$weekDay+1; $afterMonth<=7; $afterMonth++) : ?>
+				<div class="one column alpha omega day fill"></div>
+			<? endfor ?>
+		<? endif ?>
+		<? // End of line ?>
+		<? if($weekDay == 7 || $day == $nbDaysInMonth) : ?>
+		<? endif ?>
+	<? endfor ?>
+</div>

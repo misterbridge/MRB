@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>
+		Error caught
+	</title>
+</head>
+<body>
+	<h1>Error caught !</h1>
+	<? switch ($errno) :
+	   case E_USER_ERROR: ?>
+		<b>My ERROR</b> [<?=$errno ?>] <?=$errstr ?><br />
+		In file <?=$errfile ?> (<?=$errline ?>)<br/>
+		PHP<?=PHP_VERSION ?> (<?=PHP_OS ?><br />
+		Aborting...<br />
+		<? break; ?>
+	<? case E_USER_WARNING: ?>
+		<b>My WARNING</b> [<?=$errno ?>] <?=$errstr ?><br />
+		In <?=$errfile ?> (<?=$errline ?>)
+		<? break; ?>
+	<? case E_USER_NOTICE: ?>
+		<b>My NOTICE</b> [<?=$errno ?>] <?=$errstr ?><br />
+		In <?=$errfile ?> (<?=$errline ?>)
+		<? break; ?>
+	<? default: ?>
+		Unknown error type: [<?=$errno ?>] <?=$errstr ?><br />
+		In <?=$errfile ?> (<?=$errline ?>)
+		<? break; ?>
+	<? endswitch ?>
+	<p>
+		Please go <a href="javascript: history.back(1)">back</a> and try again.
+	</p>
+</body>
+</html>

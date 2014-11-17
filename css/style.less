@@ -1,0 +1,293 @@
+html, body {
+	background-color: #151515;
+	background-image: url('../img/blackwood.TN.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow-x: hidden;
+}
+
+.hiddenSmall {
+	@media @mediaNoBorder { display: none; }
+}
+
+.container {
+	margin-top: @boxDecal + @marginTop;
+	margin-bottom: @boxDecal + @marginTop;
+	min-height: @minHeight;
+	background-color: rgba(21, 21, 21, 0.8);
+}
+
+.smallContainer {
+	padding: @boxHeight - @boxDecal + 10px 0;
+}
+
+.box {
+	position: absolute;
+	left: -@boxDecal;
+	height: @boxHeight - @boxDecal;
+	width: 100%;
+	padding-left: @boxDecal;margin-right: 10px;
+	padding-right: @boxDecal;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.boxOnTop {
+	top: -@boxDecal;
+	padding-top: @boxDecal;
+}
+
+.boxOnBottom {
+	bottom: -@boxDecal;
+	padding-bottom: @boxDecal;
+}
+
+.basicBarActions {
+	float: right;
+	margin-right: 10px;
+	a, a:visited {
+		opacity: 0.3;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.button {
+		.remove-bottom;
+	}
+}
+
+.content {
+	height: 100%;
+	&.loginPage {
+		padding: 0;
+	}
+}
+
+.menu {
+	float: left;
+	height: 100%;
+	@media @mediaNoBorder {
+		float: none;
+		height: auto;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid;
+	}
+	li {
+		display: block;
+		margin-bottom: 5px;
+		text-align: center;
+		background: rgba(255, 255, 255, 0.2);
+		position: relative;
+		transition: all 1s;
+        width: 100%;
+        height: 39px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		a {
+            position: absolute;
+            left: 0;
+			width: 100%;
+            z-index: 5;
+			padding: 10px 0;
+			border-bottom: none;
+			color: inherit;
+			&:hover {
+				color: inherit;
+			}
+		}
+		.selector {
+			transition: .2s;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			display: inline-block;
+			height: 1px;
+			width: 100%;
+			background-color: @green;
+		}
+		transition: .2s;
+		&.selected {
+			background-color: rgba(255, 255, 255, 0.8);
+			color: @black;
+			.selector {
+                // background-color: @pink;
+                // height: 100%;
+                // width: 0px;
+            }
+		}
+		&:hover {
+			font-weight: 800;
+			// letter-spacing: 1px;
+            color: @black;
+			.selector {
+				background-color: @pink;
+				height: 100%;
+                width: 100%;
+			}
+            &.selected {
+                .selector {
+                    background-color: @green;
+                }
+            }
+		}
+        a:active {
+            background-color: @white;
+            opacity: 0.65;
+        }
+	}
+}
+
+.calendarPage {
+	.calendar {
+		.calendarMonth {
+			margin-bottom: 6px;
+			@media @mediaNoBorder { margin-bottom: 0; }
+			.titleMonth {
+				height: 40px;
+				line-height: 40px;
+				font-weight: bold;
+				color: @black;
+				background-color: fadeout(@green, 10%);
+				.centered;
+			}
+			.changeMonth {
+				margin-top: 10px;
+				@media @mediaNoBorder { margin-top: 0; }
+				height: 20px;
+				color: @black;
+				background-color: fadeout(@blue, 50%);
+				font-weight: bold;
+				.centered;
+			}
+		}
+		.weekDays {
+			div {
+				color: @black;
+				background-color: fadeout(@blue, 20%);
+				text-align: center;
+			}	
+		}
+		.day {
+			float: left;
+			height: 100px;
+			@media @media2 { height: 90px; }
+			@media @media3 { height: 60px; }
+			@media @mediaNoBorder { height: 45px; }
+			background-color: rgba(255, 255, 255, 0.2);
+			overflow: hidden;
+			.dayNumber {
+				font-weight: bold;
+				display: inline-block;
+				height: 15px;
+				line-height: 15px;
+				padding: 3px 6px;
+				margin-bottom: 3px;
+				background: fadeout(@black, 30%);
+				border-right: 1px solid fadeout(darken(@black, 30%), 50%);
+				border-bottom: 2px solid fadeout(darken(@black, 30%), 50%);
+				border-bottom-right-radius: 5px;
+				color: @white;
+			}
+			&.fill {
+				background-color: rgba(255, 255, 255, 0.05);
+				@media @mediaNoBorder { display: none; }
+				&:hover {
+					background-color: rgba(255, 255, 255, 0.05);
+					cursor: inherit;
+				}
+			}
+			&.today {
+				color: @baseColorOpposite;
+				background-color: @pink;
+			}
+			.dayContent {
+				padding: 2px 5px;
+				.ellipsis;
+			}
+			&:hover {
+				color: @black;
+				background-color: fadeout(@blue, 30%);
+				cursor: pointer;
+				.dayNumber {
+					color: @white;
+				}
+			}
+		}
+	}
+
+	.calendarDetail {
+		
+	}
+}
+
+.inputTextSubmit {
+	opacity: 0.7;
+	.inputText;
+	.remove-bottom;
+	width: auto;
+	padding: 0;
+	border: none;
+	input, input:focus, input:hover {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		height: 30px;
+		line-height: 22px;
+		background: rgba(0, 0, 0, 0);
+		border: none;
+		vertical-align: middle;
+		box-shadow: none;
+		moz-box-shadow: none;
+		webkit-box-shadow: none;
+		&[type="password"] {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		&[type="submit"] {
+			padding-left: 15px;
+			padding-right: 15px;
+			border-left: 1px solid rgba(0, 0, 0, 0.3);
+			border-right: 1px solid rgba(0, 0, 0, 0);
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0;
+			&:hover {
+				background: rgba(0, 0, 0, 0.3);
+			}
+		}
+	}
+	::-webkit-input-placeholder { padding-left: 10px; }
+}
+
+.tablecell form {
+	display: inline-block;
+	.remove-bottom;
+}
+
+.errorContainer {
+	position: relative;
+	top: 0;
+	height: 0;
+	.remove-bottom;
+	.error {
+		position: relative;
+		top: -40px - (@errorPaddingHeight * 2);
+		padding: @errorPaddingHeight @errorPaddingWidth;
+		.add-bottom;
+
+		color: desaturate(rgb(255, 0, 0), 20%);
+		background: lighten(rgba(255, 0, 0, 0.2), 30%);
+		font-weight: @errorFontWeight;
+
+		.borderRadius(5px);
+	}
+	opacity: 0;
+	.animate(appeardisappear, 5s, 0s);
+}
+
+@-webkit-keyframes appeardisappear { 0% { opacity: 0; } 8% { opacity: 1; } 50% { opacity: 1; } 100% { opacity: 0 } }
+@-moz-keyframes appeardisappear { 0% { opacity: 0; } 8% { opacity: 1; } 50% { opacity: 1; } 100% { opacity: 0 } }
+@-o-keyframes appeardisappear { 0% { opacity: 0; } 8% { opacity: 1; } 50% { opacity: 1; } 100% { opacity: 0 } }
+@keyframes appeardisappear { 0% { opacity: 0; } 8% { opacity: 1; } 50% { opacity: 1; } 100% { opacity: 0 } }

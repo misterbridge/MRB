@@ -1,0 +1,25 @@
+TODO:
+
+Calendar
+	Full 2/3 screen, big cases
+
+Golden book
+	Keep it simple stupid
+
+Cooking book
+	With links to Marmiton
+
+Menu
+	Contained in the calendar - Activate it or not
+	List of all available dishes
+	Every dishes is configurable -> ingredients
+	The menu is linked to the shopping list
+
+Notes
+
+Photos
+	Avec import -> Réduction des tailles
+	Recadrage
+	Crop
+
+Compte

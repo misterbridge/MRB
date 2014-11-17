@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+	<meta charset='iso-8859-1'>
+	<title><?=(!empty($siteName)) ? $siteName : $this->getSiteName() ?></title>
+	<meta name='description' content=<?=(empty($siteDescription)) ? '\'\'' : '\''.$siteDescription.'\'' ?>>
+	<meta name='author' content='Sylvain Pont'>
+
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,300,400,600,700' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' href='css/combo.css'>
+	<?=(empty($siteCss)) ? '' : $siteCss ?>
+
+	<!--[if lt IE 9]>
+		<script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script>
+	<![endif]-->
+
+	<link rel='shortcut icon' href='<?=BASE_PATH ?>img/favicon/<?=$this->getSiteFavicon() ?>'>
+
+	<script type='text/javascript' src='js/jquery-2.0.3.min.js'></script>
+	<script type='text/javascript' src='js/script.js'></script>
+	<script type='text/javascript' src='js/CKEditor/ckeditor.js'></script>
+
+	<?=(empty($siteJs)) ? '' : $siteJs ?>
+
+</head>
+<body>
+	<div class='container'>
+		<div class='box boxOnTop'>
+			<?=(empty($topBarContent)) ? '' : $topBarContent ?>
+			<div class="basicBarActions table">
+			<div class="tablecell">
+				<? if($this->isConnected()) : ?>
+					<a class="button" href="<?=$this->getUrl('disconnect') ?>">Se d&eacute;connecter</a>
+				<? endif ?>
+			</div>
+			</div>
+		</div>
+		<div class='box boxOnBottom'><?=(empty($bottomBarContent)) ? '' : $bottomBarContent ?></div>
+		<div class='smallContainer clearfix <?=(empty($specialClass)) ? '' : $specialClass ?>'>
+			<? if(!empty($menu)) : ?>
+				<div class="two columns menu <?=$templateName ?>"> <? require($menu); ?> </div>
+				<div class="ten columns alpha omega content <?=$templateName . 'Page' ?>"> <? require($template); ?> </div>
+			<? elseif(!empty($template)) : ?>
+				<div class="twelve columns alpha omega content <?=$templateName . 'Page' ?>"> <? require($template); ?> </div>
+			<? endif; ?>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/*====================================
+=            MEDIA SCREEN            =
+====================================*/
+
+@screenBig: 1400px;
+@screenBigMinus: @screenBig - 1px;
+@screenSmall: 960px;
+@screenSmallMinus: @screenSmall - 1px;
+@screenTablet: 768px;
+@screenTabletMinus: @screenTablet - 1px;
+@screenSmartphone: 480px;
+@screenSmartphoneMinus: @screenSmartphone - 1px;
+@screenSmallPhone: 300px;
+
+@mediaScreenBig: ~"only screen and (min-width: @{screenBig})";
+@mediaScreenSmall: ~"only screen and (min-width: @{screenSmall}) and (max-width: @{screenBigMinus})";
+@mediaScreenTablet: ~"only screen and (min-width: @{screenTablet}) and (max-width: @{screenSmallMinus})";
+@mediaScreenSmartphone: ~"only screen and (min-width: @{screenSmartphone}) and (max-width: @{screenTabletMinus})";
+@mediaScreenPhone: ~"only screen and (max-width: @{screenSmartphoneMinus})";
+
+@media1: @mediaScreenBig;
+@media2: @mediaScreenSmall;
+@media3: @mediaScreenTablet;
+@media4: @mediaScreenSmartphone;
+@media5: @mediaScreenPhone;
+
+@mediaNoBorder: ~"only screen and (max-width: @{screenTabletMinus})";
+
+
+/*===============================
+=            CONTENT            =
+===============================*/
+
+@isCenteredContent: true;
+
+@widthContainer: @screenBig;
+@marginC: 15px; // Margin left and right for each columns
+@float: true; // Columns sides by sides
+@numberC: 12; // Nombre de colonnes per line
+
+@minHeight: 200px;
+@marginTop: 10px;
+
+@boxDecal: 10px;
+@boxHeight: 70px;
+
+
+/*========================================
+=            COLORS AND FONTS            =
+========================================*/
+
+@white: #F0F0F0;
+@black: #444444;
+
+@baseColor: @white;
+@baseColorOpposite: @black;
+
+@baseBackgroundcolor: @white;
+@baseFontsize: 14px;
+@baseLineheight: 21px;
+@baseFontfamily: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+/*==========  OTHER COLORS  ==========*/
+
+@pink: #FFC0CB;
+@blue: #C0FFEF;
+@green: #F0FFC0;
+
+
+/*==========  TITLES  ==========*/
+
+@titleFontfamily: "Open Sans", "Georgia", "Times New Roman", serif;
+@titleColor: #181818;
+
+/*==========  LINKS  ==========*/
+
+@aColor: #333333;
+
+
+/*==============================
+=            ERRORS            =
+==============================*/
+
+@errorFontWeight: 600;
+@errorPaddingHeight: 10px;
+@errorPaddingWidth: 20px;
